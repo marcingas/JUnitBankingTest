@@ -26,11 +26,14 @@ class BankAccountTest {
         assertEquals(1200,balance,0);
 
     }
-
     @Test
-    void withdraw_branch() throws Exception{
-        double balance = account.withdraw(600,true);
-        assertEquals(400,balance,0);
+    void withdraw_notBranchOldVersiot() throws Exception{
+        try{
+            account.withdraw(600,false);
+            fail("Should have thrownm an illegal arg exc");
+        }catch(IllegalArgumentException e){
+
+        }
     }
     @Test()
     void withdraw_notbranchThrows() throws Exception{
